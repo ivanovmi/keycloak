@@ -1,7 +1,6 @@
-
-{%- load_yaml as base_defaults %}
-
+{%- load_yaml as base %}
+dir: /srv/volumes/keycloak
 {%- endload %}
 
-{%- set server = salt['grains.filter_by'](base_defaults, merge=salt['pillar.get']('keycloak:server')) %}
-{%- set proxy = salt['grains.filter_by'](base_defaults, merge=salt['pillar.get']('keycloak:proxy')) %}
+{%- set server = salt['pillar.get']('keycloak:server') %}
+{%- set proxy = salt['pillar.get']('keycloak:proxy') %}

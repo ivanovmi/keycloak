@@ -1,0 +1,24 @@
+{%- from "keycloak/map.jinja" import proxy with context-%}
+{%- macro adapter(adapter_conf) -%}
+"realm": "{{ adapter_conf.realm }}",
+"auth-server-url": "{{ adapter_conf.auth_server_url }}",
+"resource": "{{ adapter_conf.resource }}"
+{%- endmacro -%}
+{%- macro application(app) -%}
+  "base-path": "{{ app.base_path }}",
+  "adapter-config": {
+    {{ adapter(app.adapter_config)|indent(width=4) }}
+  }
+{%- endmacro -%}
+{
+  "target-url": "{{ proxy.target_url }}",
+  "bind-address": "{{ proxy.bind.address }}",
+  "http-port": "{{ proxy.bind.http_port }}",
+  "applications": [
+  {%- for app_name, app in proxy.applications.iteritems() %}
+    {
+      {{ application(app)|indent(width=4) }}
+    }{%- if not loop.last %},{% endif -%}
+  {%- endfor %}
+  ]
+}

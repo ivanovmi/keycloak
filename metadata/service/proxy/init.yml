@@ -4,7 +4,9 @@ classes:
 - service.keycloak.support
 parameters:
   keycloak:
-    server:
+    proxy:
       enabled: true
+      target_url: "http://127.0.0.1"
       bind:
-        address: 0.0.0.0
+        address: "0.0.0.0"
+        http_port: 9999
