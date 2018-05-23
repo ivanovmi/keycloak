@@ -1,0 +1,10 @@
+applications:
+- keycloak
+classes:
+- service.keycloak.support
+parameters:
+  keycloak:
+    server:
+      enabled: true
+      bind:
+        address: 0.0.0.0

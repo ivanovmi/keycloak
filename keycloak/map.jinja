@@ -1,0 +1,7 @@
+
+{%- load_yaml as base_defaults %}
+
+{%- endload %}
+
+{%- set server = salt['grains.filter_by'](base_defaults, merge=salt['pillar.get']('keycloak:server')) %}
+{%- set proxy = salt['grains.filter_by'](base_defaults, merge=salt['pillar.get']('keycloak:proxy')) %}

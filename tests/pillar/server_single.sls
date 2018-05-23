@@ -1,0 +1,3 @@
+keycloak:
+  server:
+    enabled: true

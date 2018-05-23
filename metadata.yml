@@ -1,0 +1,3 @@
+name: "keycloak"
+version: "2018.1"
+source: "https://github.com/salt-formulas/keycloak"

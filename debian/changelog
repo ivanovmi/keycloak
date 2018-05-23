@@ -1,0 +1,5 @@
+salt-formula-keycloak (2018.1) xenial; urgency=medium
+
+  * Initial release
+
+ -- Mikhail Ivanov mivanov@mirantis.com  Tue, 22 May 2018 10:45:55 BST
